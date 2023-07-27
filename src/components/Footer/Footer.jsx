@@ -6,7 +6,7 @@ import LOGO from "../../images/logo.svg"
 
 const Footer = () => {
   return (
-    <section className={styles.Footer}>
+    <section className={`${styles.Footer} ${styles.FooterDistance}`}>
       <div className={styles.socFooter}>
       <div className={styles.logo}>
         <Link to={ROUTES.HOME}>

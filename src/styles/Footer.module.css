@@ -6,6 +6,10 @@
   padding: 34px;
 }
 
+.FooterDistance {
+  margin-top: 30px;
+}
+
 .socFooter {
   display: flex;
   align-items: center;

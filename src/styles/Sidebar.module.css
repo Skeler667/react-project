@@ -1,14 +1,14 @@
 .sidebar {
   width: 304px;
   padding: 24px;
-  height: 423px;
+  height: 430px;
   display: flex;
   flex-direction: column;
 }
 
 .sidebarPadding {
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 
 .title {
