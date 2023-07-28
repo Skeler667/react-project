@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 const Sidebar = () => {
   const { list } = useSelector(({ categories }) => categories)
-  console.log(list)
   return (
     <div className={styles.sidebarPadding}>
     <section className={styles.sidebar}>
