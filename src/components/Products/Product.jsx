@@ -1,14 +1,32 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../../styles/Product.module.css'
 import { ROUTES } from '../../utils/routes';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addFavoriteToCart, addItemToCart } from '../../features/user/userSlice';
 
 const SIZES = [4, 4.5, 5];
 
-const Product = ({ description, price, title, images }) => {
+const Product = (item) => {
+const { description, price, title, images } = item;
+const dispatch = useDispatch();
 
-const [currentImage, setCurrentImage] = useState(images[0]);
+const [currentImage, setCurrentImage] = useState();
 const [currentSize, setCurrentSize] = useState();
+
+useEffect(() => {
+  if(!images.length) return;
+
+  setCurrentImage(images[0]);
+}, [images])
+
+const addToCart = () => {
+  dispatch(addItemToCart(item));
+};
+
+const addFavorite = () => {
+  dispatch(addFavoriteToCart(item))
+}
 
   return (
     <section className={styles.product}>
@@ -56,12 +74,17 @@ const [currentSize, setCurrentSize] = useState();
 
       <div className={styles.actions}>
         <button
-          onClick={() => {}}
+          onClick={addToCart}
           className={styles.add}
+          disabled={!currentSize}
         >
           Add to cart
         </button>
-        <button className={styles.favourite}>Add to favourites</button>
+        <button className={styles.favourite}
+        onClick={addFavorite}
+        >
+          Add to favourites
+          </button>
       </div>
 
       <div className={styles.bottom}>
