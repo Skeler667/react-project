@@ -3,7 +3,7 @@ import styles from '../../styles/User.module.css';
 import { useDispatch } from 'react-redux';
 import { createUser } from '../../features/user/userSlice';
 
-const UserSignUpForm = ({ closeForm }) => {
+const UserSignUpForm = ({ toggleCurrentFormType, closeForm }) => {
 
     const dispatch = useDispatch();
 
@@ -80,7 +80,8 @@ const UserSignUpForm = ({ closeForm }) => {
                     />
                 </div>
 
-                <div className={styles.link}>
+                <div className={styles.link}
+                onClick={() => toggleCurrentFormType('login')}>
                     I alredy have an account
                 </div>
 
