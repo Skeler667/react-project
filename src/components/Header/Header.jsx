@@ -3,13 +3,14 @@ import styles from '../../styles/Header.module.css'
 import { ROUTES } from './../../utils/routes';
 import LOGO from "../../images/logo.svg"
 import AVATAR from "../../images/avatar.jpg"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleForm } from '../../features/user/userSlice';
 
 const Header = () => {
   const { currentUser } = useSelector(({user}) => user);
-  const dispatch = useDispatch ();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [values, setValues] = useState({ name: "Guest", avatar: AVATAR });
 
@@ -21,7 +22,7 @@ const Header = () => {
 
   const handleClick = () => {
     if(!currentUser) dispatch(toggleForm(true))
-
+    else navigate(ROUTES.PROFILE)
   }
   return (
     <div className={styles.header}>
