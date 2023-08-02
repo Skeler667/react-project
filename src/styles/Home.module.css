@@ -127,3 +127,19 @@
   color: var(--violet);
   font-weight: 700;
 }
+
+
+@media screen and (max-width:1324px) {
+  .title {
+    font-size: 100px;
+  }
+  .head {
+    font-size: 34px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .home {
+    margin-bottom: 2%;
+  }
+}

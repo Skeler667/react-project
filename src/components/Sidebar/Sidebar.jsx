@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux'
 const Sidebar = () => {
   const { list } = useSelector(({ categories }) => categories)
   return (
+
+    
     <div className={styles.sidebarPadding}>
     <section className={styles.sidebar}>
         <div className={styles.title}>CATEGORIES</div>
