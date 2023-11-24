@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 const Sidebar = () => {
   const { list } = useSelector(({ categories }) => categories)
   return (
-    
+    // react-bootsrtap response // 700px very // 500px biggest //
     <div className={styles.sidebarPadding}>
     <section className={styles.sidebar}>
       <div className={styles.flex}>
