@@ -165,11 +165,11 @@
   }
   .image {
     width: 135px;
-    height: 135px;
+    height: 125px;
   }
   .current {
     width: 375px;
-    height: 475px;
+    height: 375px;
   }
   .product {
     max-width: calc(100% - 68px);
