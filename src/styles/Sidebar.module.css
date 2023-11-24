@@ -16,6 +16,15 @@
   line-height: 20px;
 }
 
+.title_sale {
+    font-weight: 900;
+    font-size: 80px;
+    line-height: 105px;
+    text-transform: uppercase;
+    color: var(--bg);
+    text-align: center;
+}
+
 .menu {
   margin-top: 32px;
   display: flex;
@@ -28,6 +37,7 @@
   font-size: 14px;
   line-height: 17px;
   text-transform: capitalize;
+  margin: 140px 40px 0px 0px;
 }
 
 .link:hover {
@@ -36,6 +46,7 @@
 
 .link.active {
   color: var(--violet);
+  border-bottom: 2px solid violet;
 }
 
 .footer {
@@ -44,15 +55,56 @@
   justify-content: space-between;
 }
 
-
+.flex {
+  display: block;
+}
 
 @media screen and (max-width: 1000px) {
   .sidebar {
-    width: 1220px;
+    font-size: 24px;
+    width: 1228px;
     padding: 57px;
-    height: 388px;
+    height: 488px;
     display: flex;
     flex-direction: column;
     margin-left: 2%;
+  }
+  .flex {
+    display: flex;
+    justify-content: space-around;
+  }
+  .link {
+    margin: 70px 40px 0px 0px;
+    font-size: 20px;
+  }
+}
+
+
+
+@media screen and (min-width: 1001px) {
+  .title_sale {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .sidebar {
+    font-size: 24px;
+    width: 1228px;
+    padding: 57px;
+    height: 488px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+  }
+  .title_sale {
+    width: 700px;
+    height: 160px;
+    font-size: 102px;
+  }
+  .link {
+    padding-top: 20px;
+    margin: 180px 70px 0px 0px;
+    font-size: 22px;
   }
 }

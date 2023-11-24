@@ -76,3 +76,19 @@
 .link:hover {
   color: var(--light);
 }
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    margin-top: 10%;
+    margin-right: 38%;
+    width: 300px;
+    height: 400px;
+    display: inline-block;
+  }
+  .title {
+      font-size: 22px;
+  }
+  .link {
+    font-size: 15px;
+  }
+}

@@ -135,3 +135,45 @@
   .total span {
     color: #fff;
   }
+
+  @media screen and (max-width: 1000px) {
+    .actions button {
+      font-size: 18px;
+    }
+    .total {
+      font-size: 24px;
+    }
+    .quantity span {
+      font-size: 22px;
+    }
+    .plus,
+    .minus {
+      width: 40px;
+      height: 40px;
+    }
+    .cart {
+      margin: 0px auto;
+      width: calc(100% - 200px);
+    }
+    .item {
+      grid-template-columns: 180px 2fr 1fr 1.5fr 1fr 16px;
+      height: 32vh;
+    }
+    .image {
+      width: 230px;
+    }
+    .info {
+      margin-left: 90px;
+    }
+    .price {
+      font-size: 22px;
+    }
+    .name {
+      font-size: 18px;
+      line-height: 1.2;
+    }
+    .category {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+  }

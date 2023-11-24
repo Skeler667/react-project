@@ -97,3 +97,45 @@
     height: 300px;
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .title {
+    font-size: 20px;
+  }
+  .price {
+    font-size: 28px;
+  }
+  .purchases {
+    font-size: 16px;
+  }
+  .oldPrice {
+    font-size: 18px;
+  }
+  .cat {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .product {
+    background: var(--bg);
+    border-radius: 8px;
+    overflow: hidden;
+    width: calc(100% / 3 - 20px);
+  }
+  
+  .product:nth-child(5n) {
+    width: calc(100% / 3);
+  }
+}
+
+@media screen and (max-width: 824px) {
+  .product {
+    background: var(--bg);
+    border-radius: 8px;
+    overflow: hidden;
+    width: calc(100% / 2 - 20px);
+  }
+  
+  .product:nth-child(5n) {
+    width: calc(100% / 2);
+  }
+}

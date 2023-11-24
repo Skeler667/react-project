@@ -29,3 +29,28 @@
     line-height: 24px;
     margin-top: 20px;
   }
+
+  @media screen and (max-width: 1001px) {
+    .title {
+      padding-top: 20px;
+      font-size: 24px;
+    }
+    h2 {
+      margin-top: 20px;
+      font-size: 32px;
+    }
+    .image {
+      height: 440px;
+    }
+    .list {
+      flex-direction: column;
+
+    }
+    .item {
+      width: 90%;
+      overflow: hidden;
+      padding: 24px;
+      margin: 0px auto;
+      text-align: center;
+    }
+}

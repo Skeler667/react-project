@@ -5,12 +5,15 @@ import { useSelector } from 'react-redux'
 const Sidebar = () => {
   const { list } = useSelector(({ categories }) => categories)
   return (
-
     
     <div className={styles.sidebarPadding}>
     <section className={styles.sidebar}>
-        <div className={styles.title}>CATEGORIES</div>
+      <div className={styles.flex}>
+        <div>
+        <div>
+          <div className={styles.title}>CATEGORIES</div>
 
+      </div>
         <nav>
           <ul className={styles.menu}>
             {list.map(({ id, name}) => (
@@ -29,17 +32,28 @@ const Sidebar = () => {
             <a href="/help"
             target="_blank"
             className={styles.link}>
-              help
+              help 
             </a>     
             <a href="/terms"
              target="_blank"
              className={styles.link}
              style={{textDecoration:'underline'}}>
-              Terms & Conditions
+               Terms & Conditions
             </a>     
+            
         </div>
+        </div>
+        <div>
+          <div className={styles.title_sale}>NEW $TUFF</div>
+          <div className={styles.title_sale}>BIG CHOICE</div>
+          <div className={styles.title_sale}>NEW YEAR'S SALE</div>
+          </div>
+        </div>
+        
     </section>
+    
     </div>
+    
   )
 }
 

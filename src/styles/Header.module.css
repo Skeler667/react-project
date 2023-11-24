@@ -114,17 +114,17 @@
 
 .count {
   position: absolute;
-  width: 14px;
-  height: 14px;
+  width: 24px;
+  height: 24px;
   background: var(--violet);
-  right: 17.8%;
-  bottom: 94%;
+  left: 40.8%;
+  bottom: 70%;
+  padding-top: 4px;
   border-radius: 50%;
   font-weight: 700;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--light);
   text-align: center;
-  line-height: 16px;
 }
 
 .box {
@@ -179,6 +179,7 @@
   }
 
 @media screen and (max-width:1324px) {
+  
   .header {
     padding: 20px 25px;
   }
@@ -191,6 +192,59 @@
    }
 }
 
+@media screen and ( max-width:1000px ) {
+  .image {
+    width: 66px;
+    height: 66px;
+  }
+  .item {
+    font-size: 16px;
+    color: var(--grey);
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+  }
+  .count {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    background: var(--violet);
+    left: 40.8%;
+    bottom: 70%;
+    padding-top: 6px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--light);
+    text-align: center;
+  }
+  .account svg {
+    width: 30px;
+    height: 30px;
+  }
+  input::placeholder {
+    font-size: 16px;  
+  }
+  .form {
+    height: 50px;
+    width: 300px;
+    font-size: 18px;
+  }
+  .logo img {
+    margin-top: 10px;
+    width: 120px;
+  }
+  .icon {
+    width: 23px;
+    height: 23px;
+  }
+  .username {
+    font-size: 16px;
+    line-height: 16px;
+    color: var(--grey);
+  }
+}
+
 @media (max-width: 768px) {
   .hamburger-menu {
   display: block;
@@ -200,7 +254,4 @@
   }
   }
 
-@media screen and ( max-width:1160px ) {
-  
-}
 

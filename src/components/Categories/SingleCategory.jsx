@@ -6,7 +6,7 @@ import Poster from './../Poster/Poster';
 const SingleCategory = () => {
   return (
    <>
-   <Poster />
+   {/* <Poster /> */}
    <Category />
    </>
   )

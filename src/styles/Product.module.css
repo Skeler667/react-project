@@ -130,3 +130,50 @@
   cursor: not-allowed;
   background: var(--bg);
 }
+
+
+@media screen and (max-width: 1000px) {
+  .bottom {
+    font-size: 18px;
+  }
+  .add {
+    font-size: 18px;
+    padding: 16px 26px;
+  }
+  .description {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+  .size {
+    font-size: 18px;
+  }
+  .sizes span {
+    font-size: 18px;
+    }
+  .color span {
+  font-size: 18px;
+  }
+  .color {
+    font-size: 18px;
+  }
+  .price {
+    font-size: 24px;
+  }
+  .title {
+    margin-bottom: 10px;
+    font-size: 26px;
+  }
+  .image {
+    width: 155px;
+    height: 155px;
+  }
+  .current {
+    width: 375px;
+    height: 475px;
+  }
+  .product {
+    max-width: calc(100% - 68px);
+    margin: 0px auto;
+    height: 60vh;
+  }
+}

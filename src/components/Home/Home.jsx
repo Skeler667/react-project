@@ -5,8 +5,8 @@ import { filterByPrice } from "../../features/products/productsSlice";
 
 import Banner from "../Banner/Banner";
 import Categories from "../Categories/Categories";
-import Poster from "../Poster/Poster";
 import Products from "../Products/Products";
+import Poster from './../Poster/Poster';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const Home = () => {
 
   return (
     <>
-      <Poster />
+    <Poster />
       <Products products={list} amount={5} title="Trending" />
       <Categories products={categories.list} amount={5} title="Worth seeing" />
       <Banner />

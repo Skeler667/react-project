@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { getCategories } from '../../features/categories/categoriesSlice';
 import { getProducts } from '../../features/products/productsSlice';
 import UserForm from '../User/UserForm';
+import Poster from './../Poster/Poster';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -22,8 +23,10 @@ const App = () => {
       <Header />
       <UserForm />
       <div className='container'> 
+        
+        {/* <Poster /> */}
         <Sidebar />
-        <AppRoutes />      
+        <AppRoutes />
       </div>
     <Footer />
     </div> 

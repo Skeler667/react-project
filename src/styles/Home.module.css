@@ -139,6 +139,10 @@
 }
 
 @media screen and (max-width: 1000px) {
+  .more {
+    padding: 15px 25px;
+    font-size: 22px;
+  }
   .home {
     margin-bottom: 2%;
   }

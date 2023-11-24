@@ -4,6 +4,7 @@
   justify-content: space-between;
   margin-top: 20px;
   padding: 34px;
+  flex-direction: column;
 }
 
 .FooterDistance {
@@ -47,4 +48,40 @@
 
 .socials svg:hover {
   fill: var(--violet);
+}
+
+@media screen and (max-width: 1200px) {
+  .rights {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .rights {
+    font-size: 18px;
+  }
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 34px;
+    flex-direction: column;
+  }
+  
+  .FooterDistance {
+    height: 80px;
+    margin-top: 30px;
+  }
+  
+  .socFooter {
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo {
+    width: 91px;
+  }
 }
