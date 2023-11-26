@@ -104,7 +104,30 @@
   }
   .link {
     padding-top: 20px;
-    margin: 180px 70px 0px 0px;
+    margin: 160px 70px 0px 0px;
     font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .title_sale {
+    display: none;
+  }
+  .sidebar {
+    font-size: 24px;
+    width: 938px;
+    padding: 57px;
+    height: 588px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+  }
+  .link {
+    padding-top: 100px;
+    margin: 50px 208px 1px 0px;
+    font-size: 26px;
+  }
+  li {
+    margin-top: 20px;
   }
 }

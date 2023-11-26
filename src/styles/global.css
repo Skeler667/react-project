@@ -128,3 +128,10 @@ input {
   align-items: center;
   justify-content: center;
 }
+
+@media screen and (max-width: 740px) {
+  .container {
+    width: calc(100% - 300px);
+    margin: 0px auto;
+  }
+}
