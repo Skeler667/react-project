@@ -131,3 +131,13 @@
     margin-top: 20px;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .sidebar {
+    width: 500px;
+    height: 1000px;
+  }
+  .link {
+    margin: 440px 99px 1px 0px;
+  }
+}

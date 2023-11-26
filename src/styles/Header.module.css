@@ -254,4 +254,9 @@
   }
   }
 
+  @media (max-width: 500px) {
+  .header {
+    width: 916px;
+  }
+}
 
