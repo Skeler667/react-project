@@ -9,6 +9,9 @@ import { getProducts } from '../../features/products/productsSlice';
 import UserForm from '../User/UserForm';
 import Poster from './../Poster/Poster';
 
+import NavState from '../../context/navState';
+import MainMenu from '../MainMenu';
+
 const App = () => {
   const dispatch = useDispatch();
 
@@ -20,6 +23,9 @@ const App = () => {
   
   return ( 
     <div className='app'>
+       <NavState>
+      <MainMenu />
+    </NavState>
       <Header />
       <UserForm />
       <div className='container'> 
