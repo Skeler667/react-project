@@ -5,7 +5,7 @@ import { MenuContext } from '../context/navState';
 import arrow from '../components/arrow.svg';
 
 const Menu = styled.nav`
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   bottom: 0px;

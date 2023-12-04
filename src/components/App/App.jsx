@@ -20,13 +20,27 @@ const App = () => {
     dispatch(getProducts());
 
   }, [dispatch])
+
+  const ResponsiveMenu = () => {
+    const isMobile = window.innerWidth <= 768;
+  
+    return (
+      <div>
+        {isMobile ?
+        <NavState>
+        <MainMenu />
+        </NavState>
+        : 
+        <Header />}
+      </div>
+    );
+  };
+  
   
   return ( 
     <div className='app'>
-       <NavState>
-      <MainMenu />
-    </NavState>
-      <Header />
+      
+      <ResponsiveMenu />
       <UserForm />
       <div className='container'> 
         

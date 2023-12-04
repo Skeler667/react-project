@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import { MenuContext } from '../context/navState';
 
 const MenuButton = styled.button`
-  display: block;
-  transform-origin: 16px 11px;
-  float: left;
-  margin-right: 29px;
-  outline: 0;
-  border: 0;
-  padding: 12px;
-  background: none;
+    display: block;
+    transform-origin: 16px -33px;
+    margin-right: 20px;
+    margin-left: 40vh;
+    outline: 0;
+    border: 0;
+    padding: 12px;
+    background: none;
 
   span {
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);

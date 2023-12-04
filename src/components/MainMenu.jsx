@@ -1,11 +1,12 @@
 import React, { useRef, useContext } from 'react';
 import styled from 'styled-components';
-import useOnClickOutside from '../components/hooks/onClickOutside';
+import useOnClickOutside from './hooks/onClickOutside';
 import { MenuContext } from '../context/navState';
 import HamburgerButton from './HamburgerButton';
 import { SideMenu } from './SideMenu';
 
 const Navbar = styled.div`
+backdrop-filter: blur(200px);
   display: flex;
   position: fixed;
   left: 0;
@@ -15,7 +16,7 @@ const Navbar = styled.div`
   max-width: 100%;
   margin: 0px;
   align-items: center;
-  background: #082bff none repeat scroll 0% 0%;
+  background: #6c3eb8 none repeat scroll 0% 0%;
   color: rgb(248, 248, 248);
   min-width: 0px;
   min-height: 0px;
