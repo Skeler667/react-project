@@ -177,3 +177,21 @@
     height: 60vh;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .product {
+    display: block;
+    height: 200vh;
+    width: 100%;
+  }
+  .images {
+    display: block;
+  }
+  .images-list {
+    border: 1px solid red;
+  }
+  .bottom {
+    margin-top: 26px;
+    line-height: 20px;
+  }
+}

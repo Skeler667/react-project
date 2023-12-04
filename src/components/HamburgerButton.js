@@ -4,9 +4,8 @@ import { MenuContext } from '../context/navState';
 
 const MenuButton = styled.button`
     display: block;
-    transform-origin: 16px -33px;
     margin-right: 20px;
-    margin-left: 40vh;
+    margin-left: 22vh;
     outline: 0;
     border: 0;
     padding: 12px;

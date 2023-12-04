@@ -54,3 +54,16 @@
       text-align: center;
     }
 }
+
+@media screen and (max-width: 740px) {
+  .image {
+    width: 300px;
+    height: 200px;
+  }
+  .item {
+    border: 1px solid #8b57c6;
+    /* border-bottom: 0; */
+    border-radius: 4%;
+    margin-bottom: 14px;
+  }
+}

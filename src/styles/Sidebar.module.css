@@ -6,6 +6,10 @@
   flex-direction: column;
 }
 
+.trash {
+background-color: aqua;
+}
+
 .sidebarPadding {
   margin-bottom: 0px;
   margin-top: 0px;
@@ -109,24 +113,29 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .sidebar {
+    margin-top: 96px;
+    width: 100%;
+  }
+  .trash {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 740px) {
   .title_sale {
     display: none;
   }
   .sidebar {
-    font-size: 24px;
-    width: 938px;
-    padding: 57px;
-    height: 588px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 2%;
+    margin-top: 96px;
+    width: 100%;
   }
-  .link {
+  /* .link {
     padding-top: 100px;
     margin: 50px 208px 1px 0px;
     font-size: 26px;
-  }
+  } */
   li {
     margin-top: 20px;
   }

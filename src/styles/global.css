@@ -129,10 +129,16 @@ input {
   justify-content: center;
 }
 
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 768px) {
   .container {
     width: calc(100% - 300px);
     margin: 0px auto;
+  }
+  .app {
+    width: 100%;
+    margin: 0 auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 }
 

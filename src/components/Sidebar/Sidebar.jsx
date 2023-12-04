@@ -43,7 +43,7 @@ const Sidebar = () => {
             
         </div>
         </div>
-        <div>
+        <div className={styles.trash}>
           <div className={styles.title_sale}>NEW $TUFF</div>
           <div className={styles.title_sale}>BIG CHOICE</div>
           <div className={styles.title_sale}>NEW YEAR'S SALE</div>
