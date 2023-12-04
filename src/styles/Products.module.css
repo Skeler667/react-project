@@ -106,7 +106,8 @@
     margin-bottom: 8px;
   }
   .oldPrice {
-    font-size: 20px;
+        font-size: 20px;
+
   }
 }
 
@@ -144,10 +145,10 @@
     background: var(--bg);
     border-radius: 8px;
     overflow: hidden;
-    width: calc(100% / 2 - 20px);
+    width: calc(100% / 1 - 20px);
   }
   
   .product:nth-child(5n) {
-    width: calc(100% / 2);
+    width: calc(100% / 1);
   }
 }

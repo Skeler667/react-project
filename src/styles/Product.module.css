@@ -179,9 +179,12 @@
 }
 
 @media screen and (max-width: 768px) {
+  .current {
+    width: 348px;
+  }
   .product {
     display: block;
-    height: 200vh;
+    height: 80vh;
     width: 100%;
   }
   .images {
