@@ -1,9 +1,13 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef, useContext, useState } from 'react';
 import styled from 'styled-components';
 import useOnClickOutside from './hooks/onClickOutside';
 import { MenuContext } from '../context/navState';
 import HamburgerButton from './HamburgerButton';
 import { SideMenu } from './SideMenu';
+
+
+import styles from "../styles/Header.module.css";
+import { useGetProductsQuery } from "../features/api/apiSlice";
 
 import { Link } from "react-router-dom";
 
@@ -12,6 +16,7 @@ import { ROUTES } from "../utils/routes"
 // import AVATAR from "../images/avatar.jpg";
 
 import LOGO from "../images/logo.svg"
+import { useSelector } from 'react-redux';
 
 const Navbar = styled.div`
   display: flex;
@@ -32,11 +37,25 @@ const Navbar = styled.div`
   padding: 6px 60px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px;
   z-index: 500;
+  padding-left: 4%;
+  padding-right: 0px;
 `;
 
 const MainMenu = () => {
   const node = useRef();
   const { isMenuOpen, toggleMenuMode } = useContext(MenuContext);
+
+  const { currentUser, cart } = useSelector(({ user }) => user);
+  const [searchValue, setSearchValue] = useState("");
+  const { data, isLoading } = useGetProductsQuery({ title: searchValue });
+  // dqwasedqwardeqw@dqwqawsrfWE3EWDFWEDFEWDWEDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+
+
+  const handleSearch = ({ target: { value } }) => {
+    setSearchValue(value);
+  };
+
+
   useOnClickOutside(node, () => {
     // Only if menu is open
     if (isMenuOpen) {
@@ -48,9 +67,57 @@ const MainMenu = () => {
     <header ref={node}>
       <Navbar>
         <HamburgerButton />
-        <Link to={ROUTES.HOME}>
-          <img src={LOGO} alt="Stuff" />
-        </Link>
+        <form className={styles.form}>
+          <div className={styles.icon}>
+            <svg className="icon">
+              <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#search`} />
+            </svg>
+          </div>
+          <div className={styles.input}>
+            <input
+              type="search"
+              name="search"
+              placeholder="Search for anyting..."
+              autoComplete="off"
+              onChange={handleSearch}
+              value={searchValue}
+            />
+          </div>
+
+          {searchValue && (
+            <div className={styles.box}>
+              {isLoading
+                ? "Loading"
+                : !data.length
+                ? "No results"
+                : data.map(({ title, images, id }) => {
+                    return (
+                      <Link
+                        key={id}
+                        onClick={() => setSearchValue("")}
+                        className={styles.item}
+                        to={`/products/${id}`}
+                      >
+                        <div
+                          className={styles.image}
+                          style={{ backgroundImage: `url(${images[0]})` }}
+                        />
+                        <div className={styles.title}>{title}</div>
+                      </Link>
+                    );
+                  })}
+            </div>
+          )}
+        </form>
+
+        <Link to={ROUTES.CART} className={styles.cart}>
+            <svg className={styles["icon-cart"]}>
+              <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#bag`} />
+            </svg>
+            {!!cart.length && (
+              <span className={styles.count}>{cart.length}</span>
+            )}
+          </Link>
       </Navbar>
       <SideMenu />
     </header>
