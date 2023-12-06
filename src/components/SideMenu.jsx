@@ -82,6 +82,11 @@ SideMenu.defaultProps = {
       Favorite
         </Link>
         </MenuLink>
+        <MenuLink>
+      <Link to={ROUTES.PROFILE}>
+      Profile
+        </Link>
+        </MenuLink>
       </div>
     </>
   ),

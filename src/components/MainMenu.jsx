@@ -1,22 +1,24 @@
-import React, { useRef, useContext, useState } from 'react';
+import React, { useRef, useContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import useOnClickOutside from './hooks/onClickOutside';
 import { MenuContext } from '../context/navState';
 import HamburgerButton from './HamburgerButton';
 import { SideMenu } from './SideMenu';
 
+import { toggleForm } from "../features/user/userSlice";
+import AVATAR from "../images/avatar.jpg";
 
 import styles from "../styles/Header.module.css";
 import { useGetProductsQuery } from "../features/api/apiSlice";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { ROUTES } from "../utils/routes"
 // import { ROUTES } from "../../utils/routes";
 // import AVATAR from "../images/avatar.jpg";
 
 import LOGO from "../images/logo.svg"
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Navbar = styled.div`
   display: flex;
@@ -49,12 +51,25 @@ const MainMenu = () => {
   const [searchValue, setSearchValue] = useState("");
   const { data, isLoading } = useGetProductsQuery({ title: searchValue });
   // dqwasedqwardeqw@dqwqawsrfWE3EWDFWEDFEWDWEDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  const [values, setValues] = useState({ name: "Guest", avatar: AVATAR });
+
+  useEffect(() => {
+    if (!currentUser) return;
+
+    setValues(currentUser);
+  }, [currentUser]);
 
   const handleSearch = ({ target: { value } }) => {
     setSearchValue(value);
   };
 
+  const handleClick = () => {
+    if (!currentUser) dispatch(toggleForm(true));
+    else navigate(ROUTES.PROFILE);
+  };
 
   useOnClickOutside(node, () => {
     // Only if menu is open
@@ -109,6 +124,14 @@ const MainMenu = () => {
             </div>
           )}
         </form>
+
+        <div className={styles.user} onClick={handleClick}>
+          <div
+            className={styles.avatar}
+            style={{ backgroundImage: `url(${values.avatar})` }}
+          />
+          <div className={styles.username}>{values.name}</div>
+        </div>
 
         <Link to={ROUTES.CART} className={styles.cart}>
             <svg className={styles["icon-cart"]}>

@@ -22,6 +22,7 @@ const UserSignUpForm = ({ toggleCurrentFormType, closeForm }) => {
         e.preventDefault()
 
         const isNotEmpty = Object.values(values).every((val) => val);
+        console.log(Object.values(values).every((val) => val))
 
         if (!isNotEmpty) return;
     

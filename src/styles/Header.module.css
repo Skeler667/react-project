@@ -253,14 +253,15 @@
   display: none;
   }
   .form {
-    width: 63.2%;
-    margin-left: 6.6%;
+    width: 61.2%;
+    margin-left: 2%;
+    margin-right: 2%;
   }
   .input input {
     font-size: 22px;
   }
   .icon-cart {
-    width: 120px;
+    width: 60px;
     height: 40px;
   }
   .cart {
@@ -270,8 +271,9 @@
   }
 
   @media (max-width: 500px) {
-  .header {
-    width: 496px;
+  .username {
+    display: none;
   }
+
 }
 

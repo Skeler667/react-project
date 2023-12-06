@@ -92,3 +92,10 @@
     font-size: 15px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    margin-top: 16%;
+    margin-right: 30%;
+  }  
+}
