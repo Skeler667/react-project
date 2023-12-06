@@ -256,6 +256,9 @@
     width: 63.2%;
     margin-left: 6.6%;
   }
+  .input input {
+    font-size: 22px;
+  }
   .icon-cart {
     width: 120px;
     height: 40px;

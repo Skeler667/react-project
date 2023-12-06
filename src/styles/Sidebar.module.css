@@ -48,10 +48,10 @@ background-color: aqua;
   color: var(--white);
 }
 
-.link.active {
+/* .link.active {
   color: var(--violet);
   border-bottom: 2px solid violet;
-}
+} */
 
 .footer {
   margin-top: auto;
@@ -118,8 +118,16 @@ background-color: aqua;
     margin-top: 96px;
     width: 100%;
   }
+  .menu {
+    row-gap: 20px;
+  }
   .trash {
     display: none;
+  }
+  .link {
+    padding-top: 30px;
+    margin: 4px 38px 0px 0px;
+    font-size: 22px;
   }
 }
 

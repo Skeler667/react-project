@@ -148,14 +148,27 @@
   }
 }
 
-@media screen and (max-width: 740px) {
+
+@media screen and (max-width: 768px) {
+  .discount {
+    font-size: 24px;
+    line-height: 24px;
+    text-align: center;
+    color: var(--bg);
+    position: absolute;
+    left: 26%;
+    top: 64%;
+  }
   .image {
     position: relative;
     flex-grow: 1;
     height: 500px;
   }
   .image img {
-    bottom: -2%;
+    bottom: 0%;
+  }
+  .home {
+    height: 968px;
   }
   .banner {
     display: block;
