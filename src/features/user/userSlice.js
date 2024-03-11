@@ -10,6 +10,7 @@ export const createUser = createAsyncThunk(
           const res = await axios.post(`${BASE_URL}/users`, payload);
           return res.data;
         } catch(err) {
+            console.log(payload)
             console.log(err)
             return thunkAPI.rejectWithValue(err)
         }
@@ -89,6 +90,11 @@ const userSlice = createSlice({
 
             state.favoriteCart = newCart;
         },
+        addItemToCartFromFavorite: (state, { payload }) => {
+            console.log(payload)
+            let newCart = [...state.favoriteCart, ...state.cart];
+            state.cart = newCart;
+        },
         toggleForm: (state, { payload }) => {
             state.showForm = payload;
         },
@@ -98,6 +104,9 @@ const userSlice = createSlice({
         removeItemFromCart: (state, { payload }) => {
             state.cart = state.cart.filter(({ id }) => id !== payload);
           },
+          removeItemFromFavoriteCart: (state, { payload }) => {
+            state.favoriteCart = state.favoriteCart.filter(({ id }) => id !== payload);
+          },
     },
     extraReducers: (builder) => {
         builder.addCase(createUser.fulfilled, addCurrentUser);
@@ -106,6 +115,6 @@ const userSlice = createSlice({
     }
 });
 
-export const { addItemToCart, addFavoriteToCart, toggleForm, toggleFormType, removeItemFromCart } = userSlice.actions;
+export const { addItemToCart, addFavoriteToCart, addItemToCartFromFavorite, toggleForm, toggleFormType, removeItemFromCart, removeItemFromFavoriteCart } = userSlice.actions;
 
 export default userSlice.reducer;

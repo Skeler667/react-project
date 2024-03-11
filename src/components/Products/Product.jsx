@@ -2,21 +2,20 @@ import React, { useEffect, useState } from 'react'
 import styles from '../../styles/Product.module.css'
 import { ROUTES } from '../../utils/routes';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addFavoriteToCart, addItemToCart } from '../../features/user/userSlice';
 
 const SIZES = [4, 4.5, 5];
 
 const Product = (item) => {
-const { description, price, title, images } = item;
+const { description, price, title, images, id } = item;
 const dispatch = useDispatch();
-
+const { favoriteCart } = useSelector(({ user }) => user);
 const [currentImage, setCurrentImage] = useState();
 const [currentSize, setCurrentSize] = useState();
 
 useEffect(() => {
   if(!images.length) return;
-
   setCurrentImage(images[0]);
 }, [images])
 
@@ -26,6 +25,10 @@ const addToCart = () => {
 
 const addFavorite = () => {
   dispatch(addFavoriteToCart(item))
+}
+
+const isFavoriteNow = () => {
+  return favoriteCart.map((e) => e.id == id ? true : false )
 }
 
   return (
@@ -80,7 +83,8 @@ const addFavorite = () => {
         >
           Add to cart
         </button>
-        <button className={styles.favourite}
+        <button
+        className={styles.favourite}
         onClick={addFavorite}
         >
           Add to favourites

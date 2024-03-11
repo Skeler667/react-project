@@ -159,12 +159,16 @@ background-color: aqua;
   }
  }
 
-/* @media screen and (max-width: 500px) {
-  .sidebar {
-    width: 500px;
-    height: 1000px;
-  }
-  .link {
-    margin: 440px 99px 1px 0px;
-  }
-} */
+@media screen and (min-width: 319px) {
+ /* .sidebar {
+  top: 50%; закоментированно 
+  left: 50%;
+  display: block;
+  position: absolute;
+    height: 480px;
+    width: 60%;
+ } */
+ .menu {
+  row-gap: 0.2px;
+ }
+}

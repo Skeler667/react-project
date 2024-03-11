@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import styles from '../../styles/User.module.css';
 import { useDispatch } from 'react-redux';
 import { createUser } from '../../features/user/userSlice';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+
 
 const UserSignUpForm = ({ toggleCurrentFormType, closeForm }) => {
 
@@ -32,6 +34,7 @@ const UserSignUpForm = ({ toggleCurrentFormType, closeForm }) => {
 
   return (
     (
+    <Formik>
         <div className={styles.wrapper}>
             <div className={styles.close} onClick={closeForm}>
                 <svg className='icon'>
@@ -43,10 +46,10 @@ const UserSignUpForm = ({ toggleCurrentFormType, closeForm }) => {
                 Sign Up
             </div>
 
-            <form className={styles.form} onSubmit={handleSubmit}>
+            <Form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.group}>
-                    <input type="email"
-                    placeholder="Your email"
+                    <Field type="email"
+                    placeholder="Your email (required)"
                     name="email" value={values.email}
                     autoComplete="off"
                     onChange={handleChange}
@@ -54,8 +57,8 @@ const UserSignUpForm = ({ toggleCurrentFormType, closeForm }) => {
                     />
                 </div>
                 <div className={styles.group}>
-                    <input type="name"
-                    placeholder="Your name"
+                    <Field type="name"
+                    placeholder="Your name (required)"
                     name="name" value={values.name}
                     autoComplete="off"
                     onChange={handleChange}
@@ -63,8 +66,8 @@ const UserSignUpForm = ({ toggleCurrentFormType, closeForm }) => {
                     />
                 </div>
                 <div className={styles.group}>
-                    <input type="password"
-                    placeholder="Your password"
+                    <Field type="password"
+                    placeholder="Your password (required)"
                     name="password" value={values.password}
                     autoComplete="off"
                     onChange={handleChange}
@@ -72,8 +75,8 @@ const UserSignUpForm = ({ toggleCurrentFormType, closeForm }) => {
                     />
                 </div>
                 <div className={styles.group}>
-                    <input type="avatar"
-                    placeholder="Your avatar"
+                    <Field type="avatar"
+                    placeholder="Your avatar (Optional)"
                     name="avatar" value={values.avatar}
                     autoComplete="off"
                     onChange={handleChange}
@@ -89,8 +92,9 @@ const UserSignUpForm = ({ toggleCurrentFormType, closeForm }) => {
                 <button type='submit' className={styles.submit}>
                     Create an account
                 </button>
-            </form>
+            </Form>
         </div>
+    </Formik>     
     )
   )
 }

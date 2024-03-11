@@ -99,3 +99,11 @@
     margin-right: 30%;
   }  
 }
+
+
+@media screen and (max-width: 320px) {
+  .wrapper {
+    margin-top: 30%;
+    margin-right: 3.2%;
+  }
+}
