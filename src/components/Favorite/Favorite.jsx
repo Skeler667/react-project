@@ -26,7 +26,7 @@ const Favorite = () => {
         <>
           <div className={styles.list}>
             {favoriteCart.map((item) => {
-              const { title, category, images, price, id } = item;
+              const { title, category, images, price, id, quantity } = item;
 
               return (
                 <div className={styles.item} key={id}>
@@ -42,9 +42,10 @@ const Favorite = () => {
                   {/* <div className={styles.price}>{price}$</div> */}
 
                   <div className={styles.quantity}>
+                    Quantity: {quantity}
                   </div>
 
-                  <div className={styles.total}>{price}$</div>
+                  <div className={styles.total}>Price: {price}$</div>
 
                   <div
                     className={styles.close}

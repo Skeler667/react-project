@@ -13,9 +13,9 @@ const Category = () => {
   const { list } = useSelector(({ categories }) => categories);
 
   const defaultValues = {
-    title: "",
-    price_min: 0,
-    price_max: 0,
+    title: '',
+    price_min: '',
+    price_max: '',
   };
 
   const defaultParams = {
@@ -98,6 +98,7 @@ const Category = () => {
             onChange={handleChange}
             placeholder="0"
             value={values.price_min}
+            required
           />
           <span>Price from</span>
         </div>
@@ -108,11 +109,13 @@ const Category = () => {
             onChange={handleChange}
             placeholder="0"
             value={values.price_max}
+            required
           />
           <span>Price to</span>
         </div>
 
-        <button type="submit" hidden />
+        <button type="submit">Aply</button>
+        <button onClick={handleReset}>Reset</button>
       </form>
 
       {isLoading ? (

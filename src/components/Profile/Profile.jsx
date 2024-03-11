@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+
+import * as Yup from 'yup';
 
 import { updateUser } from "../../features/user/userSlice";
 
@@ -36,14 +39,32 @@ const Profile = () => {
     dispatch(updateUser(values));
   };
 
+
+  const SignupSchema = Yup.object().shape({
+    email: Yup.string().email("Неверный формат электронной почты").required("Обязательное поле"),
+    name: Yup.string().required("Обязательное поле"),
+    password: Yup.string().min(6, "Пароль должен содержать минимум 6 символов").required("Обязательное поле"),
+    avatar: Yup.mixed().required("Обязательное поле")
+  });
+
+
   return (
+    <Formik
+    initialValues={{
+      email: "",
+      name: "",
+      password: "",
+      avatar: "",
+    }}
+    
+    >
     <section className={styles.profile}>
       {!currentUser ? (
         <span>You need to log in</span>
       ) : (
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.group}>
-            <input
+            <Field
               type="email"
               placeholder="Your email"
               name="email"
@@ -55,7 +76,7 @@ const Profile = () => {
           </div>
 
           <div className={styles.group}>
-            <input
+            <Field
               type="name"
               placeholder="Your name"
               name="name"
@@ -67,7 +88,7 @@ const Profile = () => {
           </div>
 
           <div className={styles.group}>
-            <input
+            <Field
               type="password"
               placeholder="Your password"
               name="password"
@@ -79,7 +100,7 @@ const Profile = () => {
           </div>
 
           <div className={styles.group}>
-            <input
+            <Field
               type="avatar"
               placeholder="Your avatar"
               name="avatar"
@@ -96,6 +117,7 @@ const Profile = () => {
         </form>
       )}
     </section>
+    </Formik>
   );
 };
 

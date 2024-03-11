@@ -147,9 +147,9 @@ input {
   }
 }
 
-@media screen and (min-width: 319px) {
+/* @media screen and (min-width: 319px) {
  .container {
   width: 100%;
   margin-left: 1%;
  } 
-}
+} */
