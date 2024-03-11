@@ -3,7 +3,7 @@ import styles from '../../styles/User.module.css';
 import { useDispatch } from 'react-redux';
 import { createUser } from '../../features/user/userSlice';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-
+import * as Yup from 'yup';
 
 const UserSignUpForm = ({ toggleCurrentFormType, closeForm }) => {
 
@@ -13,7 +13,7 @@ const UserSignUpForm = ({ toggleCurrentFormType, closeForm }) => {
         name:'',
         email:'',
         password:'',
-        avatar:'',
+        avatar: '',
     });
 
     const handleChange = ({ target: { value, name } }) => {
@@ -22,19 +22,18 @@ const UserSignUpForm = ({ toggleCurrentFormType, closeForm }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        const isNotEmpty = Object.values(values).every((val) => val);
-        console.log(Object.values(values).every((val) => val))
-
-        if (!isNotEmpty) return;
-    
+        if (values.avatar.trim() == '' || !values.avatar.includes('http')) {
+            values.avatar = 'https://i.pinimg.com/564x/63/e2/f3/63e2f3437e722f75526d4bfdf225b6db.jpg'
+          }
         dispatch(createUser(values));
         closeForm();
       };
 
   return (
     (
-    <Formik>
+    <Formik
+    
+    >
         <div className={styles.wrapper}>
             <div className={styles.close} onClick={closeForm}>
                 <svg className='icon'>
@@ -76,11 +75,10 @@ const UserSignUpForm = ({ toggleCurrentFormType, closeForm }) => {
                 </div>
                 <div className={styles.group}>
                     <Field type="avatar"
-                    placeholder="Your avatar (Optional)"
+                    placeholder="Your avatar URL (Optional)"
                     name="avatar" value={values.avatar}
                     autoComplete="off"
                     onChange={handleChange}
-                    required
                     />
                 </div>
 
