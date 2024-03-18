@@ -70,7 +70,7 @@ const Favorite = () => {
               </span>
             </div>
 
-            <button className={styles.proceed}>Add to cart</button>
+            <button onClick={() => dispatch(addItemToCartFromFavorite(favoriteCart))} className={styles.proceed}>Add to cart</button>
           </div>
         </>
       )}

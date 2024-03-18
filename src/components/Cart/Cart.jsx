@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addItemToCart,
@@ -19,6 +19,11 @@ const Cart = () => {
   const removeItem = (id) => {
     dispatch(removeItemFromCart(id));
   };
+
+
+  useEffect(() => {
+    console.log(cart)
+  }, [cart])
 
   return (
     <section className={styles.cart}>
