@@ -93,7 +93,6 @@ const userSlice = createSlice({
         addItemToCartFromFavorite: (state, { payload }) => {
             state.favoriteCart = [];
             state.cart = [...payload, ...state.cart];
-            // state.cart.filter(({ id }) => id !== payload)
         },
         toggleForm: (state, { payload }) => {
             state.showForm = payload;
