@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../../styles/Product.module.css'
-import { ROUTES } from '../../utils/routes';
+import ROUTES from '../../utils/routes';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavoriteToCart, addItemToCart } from '../../features/user/userSlice';

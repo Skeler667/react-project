@@ -60,7 +60,7 @@ const Bar = styled.span`
   background-color: #fff;
 `;
 
-const HamburgerButton = () => {
+function HamburgerButton() {
   const { isMenuOpen, toggleMenuMode } = useContext(MenuContext);
 
   const clickHandler = () => {
@@ -78,6 +78,6 @@ const HamburgerButton = () => {
       <Bar />
     </MenuButton>
   );
-};
+}
 
 export default HamburgerButton;

@@ -13,11 +13,8 @@ import { useGetProductsQuery } from "../features/api/apiSlice";
 
 import { Link, useNavigate } from "react-router-dom";
 
-import { ROUTES } from "../utils/routes"
-// import { ROUTES } from "../../utils/routes";
-// import AVATAR from "../images/avatar.jpg";
+import ROUTES from "../utils/routes"
 
-import LOGO from "../images/logo.svg"
 import { useDispatch, useSelector } from 'react-redux';
 
 const Navbar = styled.div`

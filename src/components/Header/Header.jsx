@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import styles from "../../styles/Header.module.css";
 
-import { ROUTES } from "../../utils/routes";
+import ROUTES from "../../utils/routes";
 
 import LOGO from "../../images/logo.svg";
 import AVATAR from "../../images/avatar.jpg";
