@@ -1,9 +1,9 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-import BASE_URL from '../../utils/constants';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+import BASE_URL from "../../utils/constants";
 
 export const createUser = createAsyncThunk(
-  'users/createUser',
+  "users/createUser",
   async (payload, thunkAPI) => {
     try {
       const res = await axios.post(`${BASE_URL}/users`, payload);
@@ -12,11 +12,10 @@ export const createUser = createAsyncThunk(
       return thunkAPI.rejectWithValue(err);
     }
   },
-
 );
 
 export const loginUser = createAsyncThunk(
-  'users/loginUser',
+  "users/loginUser",
   async (payload, thunkAPI) => {
     try {
       const res = await axios.post(`${BASE_URL}/auth/login`, payload);
@@ -30,11 +29,10 @@ export const loginUser = createAsyncThunk(
       return thunkAPI.rejectWithValue(err);
     }
   },
-
 );
 
 export const updateUser = createAsyncThunk(
-  'users/updateUser',
+  "users/updateUser",
   async (payload, thunkAPI) => {
     try {
       const res = await axios.put(`${BASE_URL}/users/${payload.id}`, payload);
@@ -50,13 +48,13 @@ const addCurrentUser = (state, { payload }) => {
 };
 
 const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState: {
     currentUser: null,
     cart: [],
     favoriteCart: [],
     isLoading: false,
-    formType: 'signup',
+    formType: "signup",
     showForm: false,
   },
   reducers: {
@@ -64,9 +62,11 @@ const userSlice = createSlice({
       let newCart = [...state.cart];
       const found = state.cart.find(({ id }) => id === payload.id);
       if (found) {
-        newCart = newCart.map((item) => (item.id === payload.id
-          ? { ...item, quantity: payload.quantity || item.quantity + 1 }
-          : item));
+        newCart = newCart.map((item) =>
+          item.id === payload.id
+            ? { ...item, quantity: payload.quantity || item.quantity + 1 }
+            : item,
+        );
       } else newCart.push({ ...payload, quantity: 1 });
 
       state.cart = newCart;
@@ -75,9 +75,11 @@ const userSlice = createSlice({
       let newCart = [...state.favoriteCart];
       const found = state.favoriteCart.find(({ id }) => id === payload.id);
       if (found) {
-        newCart = newCart.map((item) => (item.id === payload.id
-          ? { ...item, quantity: payload.quantity || item.quantity + 1 }
-          : item));
+        newCart = newCart.map((item) =>
+          item.id === payload.id
+            ? { ...item, quantity: payload.quantity || item.quantity + 1 }
+            : item,
+        );
       } else newCart.push({ ...payload, quantity: 1 });
 
       state.favoriteCart = newCart;
@@ -96,7 +98,9 @@ const userSlice = createSlice({
       state.cart = state.cart.filter(({ id }) => id !== payload);
     },
     removeItemFromFavoriteCart: (state, { payload }) => {
-      state.favoriteCart = state.favoriteCart.filter(({ id }) => id !== payload);
+      state.favoriteCart = state.favoriteCart.filter(
+        ({ id }) => id !== payload,
+      );
     },
   },
   extraReducers: (builder) => {
@@ -107,8 +111,13 @@ const userSlice = createSlice({
 });
 
 export const {
-  addItemToCart, addFavoriteToCart, addItemToCartFromFavorite,
-  toggleForm, toggleFormType, removeItemFromCart, removeItemFromFavoriteCart,
+  addItemToCart,
+  addFavoriteToCart,
+  addItemToCartFromFavorite,
+  toggleForm,
+  toggleFormType,
+  removeItemFromCart,
+  removeItemFromFavoriteCart,
 } = userSlice.actions;
 
 export default userSlice.reducer;

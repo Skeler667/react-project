@@ -1,10 +1,10 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-import BASE_URL from '../../utils/constants';
-import { shuffle } from '../../utils/common';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+import BASE_URL from "../../utils/constants";
+import { shuffle } from "../../utils/common";
 
 export const getProducts = createAsyncThunk(
-  'products/getProducts',
+  "products/getProducts",
   async (_, thunkAPI) => {
     try {
       const res = await axios(`${BASE_URL}/products`);
@@ -13,11 +13,10 @@ export const getProducts = createAsyncThunk(
       return thunkAPI.rejectWithValue(err);
     }
   },
-
 );
 
 const productsSlice = createSlice({
-  name: 'categories',
+  name: "categories",
   initialState: {
     list: [],
     filtered: [],
