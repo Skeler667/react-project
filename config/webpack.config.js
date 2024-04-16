@@ -35,14 +35,14 @@ const reactRefreshRuntimeEntry = require.resolve('react-refresh/runtime');
 const reactRefreshWebpackPluginRuntimeEntry = require.resolve(
   '@pmmmwh/react-refresh-webpack-plugin'
 );
-// const babelRuntimeEntry = require.resolve('babel-preset-react-app');
-// const babelRuntimeEntryHelpers = require.resolve(
-//   '@babel/runtime/helpers/esm/assertThisInitialized',
-//   { paths: [babelRuntimeEntry] }
-// );
-// const babelRuntimeRegenerator = require.resolve('@babel/runtime/regenerator', {
-//   paths: [babelRuntimeEntry],
-// });
+const babelRuntimeEntry = require.resolve('babel-preset-react-app');
+const babelRuntimeEntryHelpers = require.resolve(
+  '@babel/runtime/helpers/esm/assertThisInitialized',
+  { paths: [babelRuntimeEntry] }
+);
+const babelRuntimeRegenerator = require.resolve('@babel/runtime/regenerator', {
+  paths: [babelRuntimeEntry],
+});
 
 // Some apps do not need the benefits of saving a web request, so not inlining the chunk
 // makes for a smoother build process.
@@ -330,9 +330,9 @@ module.exports = function (webpackEnv) {
           paths.appPackageJson,
           reactRefreshRuntimeEntry,
           reactRefreshWebpackPluginRuntimeEntry,
-          // babelRuntimeEntry,
-          // babelRuntimeEntryHelpers,
-          // babelRuntimeRegenerator,
+          babelRuntimeEntry,
+          babelRuntimeEntryHelpers,
+          babelRuntimeRegenerator,
         ]),
       ],
     },
@@ -342,7 +342,7 @@ module.exports = function (webpackEnv) {
         // Handle node_modules packages that contain sourcemaps
         shouldUseSourceMap && {
           enforce: 'pre',
-          // exclude: /@babel(?:\/|\\{1,2})runtime/,
+          exclude: /@babel(?:\/|\\{1,2})runtime/,
           test: /\.(js|mjs|jsx|ts|tsx|css)$/,
           loader: require.resolve('source-map-loader'),
         },
@@ -406,25 +406,25 @@ module.exports = function (webpackEnv) {
             {
               test: /\.(js|mjs|jsx|ts|tsx)$/,
               include: paths.appSrc,
-              // loader: require.resolve('babel-loader'),
+              loader: require.resolve('babel-loader'),
               options: {
-                // customize: require.resolve(
-                //   'babel-preset-react-app/webpack-overrides'
-                // ),
+                customize: require.resolve(
+                  'babel-preset-react-app/webpack-overrides'
+                ),
                 presets: [
                   [
-                    // require.resolve('babel-preset-react-app'),
+                    require.resolve('babel-preset-react-app'),
                     {
                       runtime: hasJsxRuntime ? 'automatic' : 'classic',
                     },
                   ],
                 ],
                 
-                // plugins: [
-                //   isEnvDevelopment &&
-                //     shouldUseReactRefresh &&
-                //     require.resolve('react-refresh/babel'),
-                // ].filter(Boolean),
+                plugins: [
+                  isEnvDevelopment &&
+                    shouldUseReactRefresh &&
+                    require.resolve('react-refresh/babel'),
+                ].filter(Boolean),
                 // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
                 // directory for faster rebuilds.
@@ -436,31 +436,31 @@ module.exports = function (webpackEnv) {
             },
             // Process any JS outside of the app with Babel.
             // Unlike the application JS, we only compile the standard ES features.
-            // {
-            //   test: /\.(js|mjs)$/,
-            //   exclude: /@babel(?:\/|\\{1,2})runtime/,
-            //   loader: require.resolve('babel-loader'),
-            //   options: {
-            //     babelrc: false,
-            //     configFile: false,
-            //     compact: false,
-            //     presets: [
-            //       [
-            //         require.resolve('babel-preset-react-app/dependencies'),
-            //         { helpers: true },
-            //       ],
-            //     ],
-            //     cacheDirectory: true,
-            //     // See #6846 for context on why cacheCompression is disabled
-            //     cacheCompression: false,
+            {
+              test: /\.(js|mjs)$/,
+              exclude: /@babel(?:\/|\\{1,2})runtime/,
+              loader: require.resolve('babel-loader'),
+              options: {
+                babelrc: false,
+                configFile: false,
+                compact: false,
+                presets: [
+                  [
+                    require.resolve('babel-preset-react-app/dependencies'),
+                    { helpers: true },
+                  ],
+                ],
+                cacheDirectory: true,
+                // See #6846 for context on why cacheCompression is disabled
+                cacheCompression: false,
                 
-            //     // Babel sourcemaps are needed for debugging into node_modules
-            //     // code.  Without the options below, debuggers like VSCode
-            //     // show incorrect code and set breakpoints on the wrong lines.
-            //     sourceMaps: shouldUseSourceMap,
-            //     inputSourceMap: shouldUseSourceMap,
-            //   },
-            // },
+                // Babel sourcemaps are needed for debugging into node_modules
+                // code.  Without the options below, debuggers like VSCode
+                // show incorrect code and set breakpoints on the wrong lines.
+                sourceMaps: shouldUseSourceMap,
+                inputSourceMap: shouldUseSourceMap,
+              },
+            },
             // "postcss" loader applies autoprefixer to our CSS.
             // "css" loader resolves paths in CSS and adds assets as dependencies.
             // "style" loader turns CSS into JS modules that inject <style> tags.
